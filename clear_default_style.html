@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除html标签元素的默认样式</title>
+    <style>
+        body, p, ul, ol, dl, dt {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        input {
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<!--body默认有一个8px的外边距-->
+<p>我是一个段落</p>
+<!--段落和段落之间有一个间隙-->
+<p>我是一个段落</p>
+
+<ul>
+    <li>wujie</li>
+    <li>wujie</li>
+</ul>
+<input type="text" name="" placeholder="username">
+</body>
+</html>
