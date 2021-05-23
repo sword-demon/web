@@ -295,3 +295,78 @@ a:active {
 </body>
 </html>
 ```
+### margin：外边距，一个盒子到另外一个盒子的距离
+
+也有四个方向
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>margin</title>
+    <style>
+        span {
+            background-color: red;
+        }
+        .xiongda {
+            margin-right: 20px;
+        }
+        /*水平方向的之间的距离是两者加起来的距离*/
+        .xionger {
+            margin-left: 100px;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+        }
+        /*margin垂直方向上会出现外边距合并，小的合并到大的值里去，也称之为外边距塌陷，取大的值*/
+        .box1 {
+            background-color: green;
+            margin-bottom: 30px;
+        }
+        .box2 {
+            background-color: red;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+<!--外边距：一个盒子到另一个盒子的距离-->
+<span class="xiongda">熊大</span>
+<span class="xionger">熊二</span>
+<div class="box1"></div>
+<div class="box2"></div>
+</body>
+</html>
+```
+
+## float浮动
+
+属性
+
+[浮动的属性](https://www.notion.so/f1b56511ca834f82b36fe49cd1b8500a)
+
+### 浮动现象
+
+```
+浮动的现象
+    1. 文字环绕
+    2. 脱离了标准文档流
+    3. 浮动元素相互贴靠
+    4. 浮动元素有收缩现象 且收缩的宽度和内容的宽度一致
+```
+
+### 清除float方式
+
+1. 给父元素设置固定高度
+   缺点： 使用不灵活，后期不易维护
+   应用：网页中盒子固定高度的区域，比如固定的导航栏
+2. 内墙法
+   规则：在最后一个浮动元素的后面加空的块级元素，并且设置该属性为 clear：both
+   缺点：结构冗余
+3. 伪元素清除
+4. overflow: hidden;
+
+
+

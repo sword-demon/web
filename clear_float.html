@@ -6,6 +6,15 @@
     <style>
         .top_bar {
             border: 1px solid red;
+            /*可以形成一个BFC区域
+            Block
+            Formatting
+            Context
+            规则：
+            计算BFC(块级盒子)的高度时，浮动元素也参与计算
+            形成BFC的条件除了overflow: visitable 的属性值
+            */
+            overflow: hidden;
         }
 
         .child1 {
@@ -30,6 +39,16 @@
             /*清除浮动左右两边带来的影响*/
             clear: both;
         }
+
+        /*在p标签后面添加一个内容*/
+        p::after {
+            content: '大帅哥';
+        }
+        /*.clearfix::after {*/
+        /*    content: '';*/
+        /*    display: block;*/
+        /*    clear: both;*/
+        /*}*/
     </style>
 </head>
 <body>
@@ -45,11 +64,14 @@
     3. 伪元素清除
     4. overflow: hidden;
 -->
-<div class="top_bar">
+<div class="top_bar clearfix">
     <div class="child1">儿子1</div>
     <div class="child2">儿子2</div>
-    <div class="clear"></div>
+<!--    <div class="clear"></div>-->
 </div>
 <div class="header"></div>
+<p>
+    <a href="#">百度一下</a>
+</p>
 </body>
 </html>
