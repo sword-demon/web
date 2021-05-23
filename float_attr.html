@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动的现象</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            color: #fff;
+            /*display: inline-block;*/
+        }
+        .left {
+            background-color: green;
+            float: left;
+        }
+        .right {
+            background-color: red;
+            float: left;
+        }
+        .center {
+            background-color: orange;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<!--浮动的现象
+    1. 文字环绕
+    2. 脱离了标准文档流
+    3. 浮动元素相互贴靠
+    4. 浮动元素有收缩现象 且收缩的宽度和内容的宽度一致
+-->
+<div class="left">左边的盒子</div>
+<div class="right">右边的盒子</div>
+<div class="center">右边的盒子</div>
+</body>
+</html>
