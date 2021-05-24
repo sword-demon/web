@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绝对定位</title>
+    <style>
+        body {
+            border: 1px solid orange;
+        }
+
+        .grandfather {
+            position: relative;
+            top: 30px;
+            left: 20px;
+            border: 1px solid purple;
+        }
+
+        .father {
+            /*position: relative;*/
+            /*top: 30px;*/
+            /*left: 30px;*/
+            border: 1px solid black;
+            margin-left: 40px;
+        }
+
+        .one, .two, .three {
+            width: 200px;
+            height: 200px;
+            color: #fff;
+        }
+
+        div.one {
+            background-color: red;
+            position: absolute;
+            /*以页面HTML的左上角为参考点*/
+            top: 200px;
+            left: 200px;
+        }
+
+        div.two {
+            width: 400px;
+            background-color: green;
+            /*position: absolute;*/
+        }
+
+        div.three {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<!--
+特点：
+1. 脱离标准文档流，不在页面上占位置
+2. 层级提高，压盖现象
+-->
+<div class="grandfather">
+    <div class="father">
+        <div class="one">one</div>
+        <div class="two">two</div>
+        <div class="three">three</div>
+    </div>
+</div>
+
+
+</body>
+</html>

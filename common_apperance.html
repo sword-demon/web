@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动和定位给行内元素带来的现象</title>
+    <style>
+        span {
+            /*float: left;*/
+            position: relative;
+            background-color: red;
+
+            /*相对定位下：宽高不起作用,设置固定定位和绝对定位和浮动的可以任意设置宽高*/
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<span>我是行内元素</span>
+</body>
+</html>

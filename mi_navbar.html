@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米导航栏</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        .site-header {
+            width: 100%;
+            height: 100px;
+            /*background-color: red;*/
+        }
+
+        .container {
+            width: 1226px;
+            /*不要去编写，靠内容填充高度*/
+            /*height: 100px;*/
+            margin: 0 auto;
+            /*background-color: green;*/
+        }
+
+        .site-header .nav-logo {
+            float: left;
+            margin-top: 25px;
+        }
+
+        .nav-logo a {
+            display: block;
+            height: 56px;
+            width: 56px;
+        }
+
+        .site-header .nav-list {
+            float: left;
+            width: 820px;
+            height: 88px;
+            padding: 12px 0 0 30px;
+        }
+
+        .nav-list li {
+            float: left;
+        }
+
+        .nav-list li a {
+            display: block;
+            padding: 28px 10px 38px;
+            color: #333;
+        }
+
+        .site-search {
+            float: right;
+            width: 296px;
+            margin-top: 25px;
+        }
+
+        .site-search form {
+            height: 50px;
+            width: 296px;
+            position: relative;
+        }
+
+        .site-search form input.content {
+            width: 223px;
+            height: 48px;
+            border: 1px solid #101010;
+            padding: 0 10px;
+            float: left;
+        }
+
+        .site-search form input.search {
+            width: 49px;
+            height: 50px;
+            border: 1px solid #101010;
+            font-size: 20px;
+            margin-left: -1px;
+        }
+
+        .search_hot_word {
+            position: absolute;
+            top: 14px;
+            right: 70px;
+            font-size: 14px;
+        }
+
+        .search_hot_word span {
+            background-color: #eee;
+            padding: 0 5px;
+            color: #757575;
+        }
+
+        .search_hot_word span:hover {
+            background-color: #ff6700;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .clearfix::after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="site-header">
+    <div class="container clearfix">
+        <div class="nav-logo">
+            <a href="#">
+                <img src="images/logo-mi2.png" alt="" style="width: 56px;height: 56px;">
+            </a>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="#">全部商品分类</a>
+            </li>
+            <li>
+                <a href="#">红米手机</a>
+            </li>
+            <li>
+                <a href="#">电视机</a>
+            </li>
+            <li>
+                <a href="#">笔记本</a>
+            </li>
+            <li>
+                <a href="#">家电</a>
+            </li>
+            <li>
+                <a href="#">新品</a>
+            </li>
+            <li>
+                <a href="#">路由器</a>
+            </li>
+            <li>
+                <a href="#">智能硬件</a>
+            </li>
+            <li>
+                <a href="#">服务</a>
+            </li>
+            <li>
+                <a href="#">社区</a>
+            </li>
+        </ul>
+        <div class="site-search">
+            <form action="">
+                <input type="text" class="content">
+                <input type="submit" value="🔍" class="search">
+                <div class="search_hot_word">
+                    <span>小米9</span>
+                    <span>小米9SE</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
