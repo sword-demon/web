@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景属性</title>
+    <style>
+        .bg {
+            width: 1200px;
+            height: 1200px;
+            /*background: red;*/
+            border: 3px solid green;
+            background-image: url("images/girl.jpg");
+            /*平铺方式*/
+            /*背景图片是否重复*/
+            background-repeat: no-repeat;
+            /*背景定位 x方向 y方向*/
+            /*background-position: 50px 100px;*/
+
+            /*关键字：top right bottom left center*/
+            /*百分比：0% 50% 100%*/
+            /*水平百分比的值 = 容器宽度的百分比 - 背景图片宽度的百分比*/
+            background-position: 50% 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <p style="color: #fff">无解的女人</p>
+</div>
+</body>
+</html>

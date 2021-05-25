@@ -368,5 +368,160 @@ a:active {
 3. 伪元素清除
 4. overflow: hidden;
 
+默认为static静态定位
+
+### 相对定位
+
+不脱离标准文档流，可以调整元素
+
+参考点：以原来的位置为参考点
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位: 相对定位</title>
+    <style>
+        body {
+            border: 1px solid orange;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            color: #fff;
+        }
+        div.one {
+            background-color: red;
+            /*相对于原来的位置进行移动*/
+            position: relative;
+            top: 30px;
+            left: 100px;
+        }
+        div.two {
+           background-color: green;
+            position: relative;
+            top: 100px;
+        }
+        div.three {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<!--position：默认为static静态定位
+    1. 相对定位 relative
+    2. 相对定位 absolute
+    3. 固定定位 fixed
+    -->
+<div class="one">one</div>
+<div class="two">two</div>
+<div class="three">three</div>
+</body>
+</html>
+```
+
+## 绝对定位
+
+```
+特点：
+1. 脱离标准文档流，不在页面上占位置
+2. 压盖现象
+```
+
+参考点：
+
+单独给一个盒子设置绝对定位，以根元素页面左上角为参考点
+
+> 相对于最近的非static祖先元素定位，如果没有非static祖先元素，那么以页面根元素左上角进行定位。
+
+网站中的实战应用："子绝父相"
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绝对定位</title>
+    <style>
+        body {
+            border: 1px solid orange;
+        }
+
+        .grandfather {
+            position: relative;
+            top: 30px;
+            left: 20px;
+            border: 1px solid purple;
+        }
+
+        .father {
+            /*position: relative;*/
+            /*top: 30px;*/
+            /*left: 30px;*/
+            border: 1px solid black;
+            margin-left: 40px;
+        }
+
+        .one, .two, .three {
+            width: 200px;
+            height: 200px;
+            color: #fff;
+        }
+
+        div.one {
+            background-color: red;
+            position: absolute;
+            /*以页面HTML的左上角为参考点*/
+            top: 200px;
+            left: 200px;
+        }
+
+        div.two {
+            width: 400px;
+            background-color: green;
+            /*position: absolute;*/
+        }
+
+        div.three {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<!--
+特点：
+1. 脱离标准文档流，不在页面上占位置
+2. 层级提高，压盖现象
+-->
+<div class="grandfather">
+    <div class="father">
+        <div class="one">one</div>
+        <div class="two">two</div>
+        <div class="three">three</div>
+    </div>
+</div>
+
+</body>
+</html>
+```
+
+## 固定定位
+
+和绝对定位相似
+
+特点：
+
+1. 脱离标准文档流
+2. 一旦设置固定定位，在页面中滚动网页，固定不变
+
+参考点：
+
+以浏览器的左上角为参考点
+
+应用：
+
+小广告，回到顶部，固定导航栏
+
 
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>z-index</title>
+    <style>
+        .a {
+            position: relative;
+            width: 200px;
+            height: 40px;
+            background-color: #C3FFFB;
+            border: 3px solid #3962FE;
+            /*设置定位带来的压盖现象，会有一个默认的auto的z-index*/
+            z-index: 1;
+        }
+
+        .b {
+            width: 200px;
+            height: 40px;
+            position: relative;
+            top: -30px;
+            left: 50px;
+            background-color: #C3FFFB;
+            border: 3px solid #3962FE;
+            z-index: 2;
+        }
+
+        .c {
+            position: relative;
+            width: 200px;
+            height: 30px;
+            top: -50px;
+            left: 100px;
+            background-color: #C3FFFB;
+            border: 3px solid #3962FE;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+<!--z-index数值越大，谁在上面-->
+<!--父元素大也会跟着在上面-->
+<div style="position:relative;z-index: 15;">
+    <div class="a">a</div>
+</div>
+
+<div style="position:relative;z-index: 10">
+    <div class="b">b</div>
+</div>
+<div class="c">c</div>
+</body>
+</html>
