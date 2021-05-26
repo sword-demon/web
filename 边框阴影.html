@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框阴影</title>
+    <style>
+        .shadow {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            background-color: purple;
+            /*前2个水平和垂直方向的偏移值，第三个模糊程度，第四个颜色 inset 内设置*/
+            /*box-shadow: -20px 20px 50px red inset;*/
+        }
+        .shadow:hover {
+            top: -3px;
+            box-shadow: 0 15px 10px #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+<div class="shadow"></div>
+</body>
+</html>
