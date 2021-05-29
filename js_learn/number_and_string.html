@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数字和字符串</title>
+</head>
+<body>
+
+<script>
+    // 这里的加号 实现了 拼接效果 而不是加法
+    var a = "wujie" + 521;
+    console.log(a);
+    // string 类型
+    console.log(typeof a);
+
+    // 隐式转换
+    var num = 234;
+    // 数值转字符串
+    var myStr = num + ""
+    console.log(typeof myStr);
+
+    // 再次转换为数值
+    var newNum = Number(num);
+    console.log(typeof newNum);
+
+    // 再次转换为字符串
+    var myStr2 = num.toString();
+    console.log(typeof myStr2);
+
+    var n = "1221nddq";
+    var c = Number(n)
+    console.log(typeof c); // Number 类型
+    console.log(c); // NaN Not a number
+</script>
+</body>
+</html>
