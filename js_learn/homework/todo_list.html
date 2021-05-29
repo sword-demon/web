@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo_list</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+    <main class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                待办事项
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td colspan="4">
+                                        <form action="" class="form-horizontal">
+                                            <div class="input-group">
+                                                <div class="input-group-btn">
+                                                    <button type="button" class="btn btn-default">Add</button>
+                                                </div>
+                                                <input type="text" placeholder="有什么要完成的任务吗?" name="task_name"
+                                                       class="form-control" style="width: 400px;">
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <!-- 循环列出任务 -->
+                                <tr>
+                                    <td class="col-9">
+                                        任务1
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-success" type="button">完成</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-danger" type="button">删除</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="panel-footer">
+                            总共6个
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">已完成</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped">
+                                <!-- 循环列出任务 -->
+                                <tr>
+                                    <td class="col-9">
+                                        任务1
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-danger" type="button">删除</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="panel-footer">
+                            总共6个
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div>
+            当前共有 <span class="">12</span> 个任务，已完成 <span>6</span>个，未完成 <span>6</span>个
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>

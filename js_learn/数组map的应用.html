@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组map的应用</title>
+</head>
+<body>
+<script>
+    var oldArray = [
+        {
+            name: "张三",
+            age: 17
+        },{
+            name: "李四",
+            age: 18
+        },{
+            name: "王五",
+            age: 19
+        },{
+            name: "赵六",
+            age: 20
+        }
+    ];
+
+    // 需求：对数组中的对象里的每一个元素进行分类
+    var newNames = [];
+    var newAges = [];
+    newNames = oldArray.map(function (item, index, array) {
+        return item.name;
+    });
+
+    newAges = oldArray.map(function (item, index, array) {
+        return item.age;
+    })
+
+    console.log(newNames);
+    console.log(newAges);
+</script>
+</body>
+</html>

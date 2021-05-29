@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象object</title>
+</head>
+<body>
+<script>
+    var food = "火腿肠";
+
+    function tiger() {
+        console.log(food);
+    }
+
+    function cat() {
+        console.log(food);
+    }
+
+    // 对象：字面量创建方式(有属性和方法的)
+    var person = {
+        age: 18,
+        name: "无解",
+        hobbies: ["大保健", "打篮球"],
+        fav: function () {
+            console.log("爱好姑娘");
+            // 得有返回值
+            return "姑娘"
+        }
+    }
+    console.log(person)
+    console.log(person.fav());
+
+    // 常用的内置对象：数组，字符串，Number，Date， 正则表达式, 对象无非是有一些属性和方法
+    var colors = []; // new Array();
+    if (Array.isArray(colors)) {
+        // 判断是否是数组
+        colors[0] = "blue";
+        console.log(colors);
+        // 将数组以字符串的形式输出
+        var a = colors.toString();
+        console.log(a);
+    } else {
+        console.log("colors不是数组");
+    }
+
+</script>
+</body>
+</html>

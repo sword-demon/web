@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>调用每次学习的js文件</title>
+</head>
+<body>
+<!--<script src="js/array.js"></script>-->
+<!--<script src="js/snayuan.js"></script>-->
+<!--<script src="js/function_return.js"></script>-->
+<script src="js/first.js"></script>
+<script src="js/second.js"></script>
+<script>
+
+    var a = 3; // var window.a = 3;
+
+    // 下面的js文件里面的会覆盖上面的，这个就是说的全局污染
+    // hello(); // ReferenceError: hello is not defined 因为它已经属于局部作用域了
+
+    console.log(window);
+    first();    // 相当于调用了 first.js 里的hello方法
+    second();   // // 相当于调用了 second.js 里的hello方法
+</script>
+</body>
+</html>
