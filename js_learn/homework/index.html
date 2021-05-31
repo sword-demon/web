@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo_list</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+    <main class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                待办事项
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped" id="todos_table">
+                                <thead>
+                                <tr>
+                                    <td colspan="5">
+                                        <form action="" class="form-horizontal">
+                                            <div class="input-group">
+                                                <div class="input-group-btn">
+                                                    <button type="button" id="add_todo" class="btn btn-default">Add
+                                                    </button>
+                                                </div>
+                                                <input type="text" id="task_name" placeholder="有什么要完成的任务吗?"
+                                                       name="task_name"
+                                                       class="form-control" required maxlength="25">
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!-- 循环列出任务 -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="panel-footer">
+                            总共 <span class="todos_count"></span> 个
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">已完成</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped" id="done-table">
+                                <!-- 循环列出任务 -->
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="panel-footer">
+                            总共 <span class="done_count">0</span> 个
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div>
+            当前共有 <span class="total_count">0</span> 个任务，已完成 <span class="done_count">0</span>个，未完成 <span
+                class="todos_count">0</span>个
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="model.js"></script>
+<script src="index.js"></script>
+<script>
+
+    var tdObj = new TodoList();
+
+    /**
+     * 数组是否包含有某元素
+     * @param obj
+     * @returns {boolean}
+     */
+    Array.prototype.contains = function (obj) {
+        var i = this.length;
+        while (i--) {
+            if (this[i] === obj) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+</script>
+</body>
+</html>
