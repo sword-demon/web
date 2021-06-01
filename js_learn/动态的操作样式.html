@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态的操作样式</title>
+    <style>
+        .highLight {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+<p id="box">mjj</p>
+
+<script>
+    // 获取节点对象
+    var oP = document.getElementById("box");
+    console.log(oP.style);
+    // 设置的每一个style都在行内显示
+    // oP.style.backgroundColor = "red";
+    // oP.style.color = "white";
+    // oP.style.width = "250px";
+    // oP.style.height = "250px";
+    // oP.style.textAlign = "center";
+    // oP.style.lineHeight = "250px";
+
+    // 第二种
+    oP.setAttribute("class", "highLight"); // 通过控制属性的类名来控制样式
+</script>
+</body>
+</html>

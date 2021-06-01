@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素节点的增删改查</title>
+    <style>
+        .active {
+            color: red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <p id="active">virus</p>
+</div>
+
+<!--
+  动态的操作节点：
+  1. 创建节点 createElement()
+  2. 插入节点 appendChild()
+            insertBefore(newNode, node);
+  3. 删除节点，removeChild()
+  4. 替换节点 replaceChild(newNode, node)
+  5. 创建文本节点 createTextNode()
+-->
+<script>
+    var oDiv = document.getElementById("box");
+    var oActive = document.getElementById("active");
+
+    var newNode = document.createElement("p");
+    var newNode2 = document.createElement("p");
+    var newNode3 = document.createElement("a");
+    console.log(newNode === newNode2); // false
+
+    // 添加属性
+    newNode.setAttribute("class", "active");
+    oDiv.appendChild(newNode);
+    // 添加元素节点对象文本
+    // var textNode = document.createTextNode("wujie");
+    // newNode.appendChild(textNode);
+    newNode.innerHTML = "wujie"; // 快速添加操作
+
+    newNode = null; // 释放对象放在最后
+
+    // 第一个参数是新插入的节点，第二个参数是参考节点
+    oDiv.insertBefore(newNode2, oActive);
+    newNode2.innerHTML = "无解的游戏";
+
+    newNode3.setAttribute("href", "http://www.baidu.com")
+    newNode3.innerHTML = "百度一下";
+
+    // 删除节点
+    // oDiv.removeChild(oActive);
+
+    // 替换
+    // 新节点 替换的节点
+    oDiv.replaceChild(newNode3, oActive)
+</script>
+</body>
+</html>

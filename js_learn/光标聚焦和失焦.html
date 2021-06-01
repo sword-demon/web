@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单控件的事件</title>
+    <style>
+        .text {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <p class="name">
+        <label for="username">用户名</label>
+        <input type="text" name="username" id="username">
+    </p>
+    <p class="pwd">
+        <label for="pwd">密码</label>
+        <input type="password" name="password" id="pwd">
+    </p>
+    <input type="submit" value="提交">
+</form>
+
+<script>
+    var userName = document.getElementById("username");
+    var newNode = document.createElement("span");
+    userName.onfocus = function () {
+        console.log("请输入用户名");
+        newNode.innerHTML = "请输入用户名";
+        newNode.setAttribute("class", "text");
+        userName.parentNode.appendChild(newNode);
+    }
+</script>
+</body>
+</html>

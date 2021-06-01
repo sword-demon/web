@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<!--第三种，直接在标签里面写-->
+<!--<div id="box" onclick="add()"></div>-->
+<div id="box"></div>
+
+<script>
+    var oDive = document.getElementById("box");
+
+    // function add() {
+    //     alert("事件被触发了");
+    // }
+
+    // 第二种
+    // oDive.onclick = add;
+
+    // 第一种
+    var isBlue = true;
+    oDive.onclick = function () {
+        // alert("hello world");
+        console.log(this); // 当前元素节点对象
+
+        // 点击颜色切换
+        if (isBlue) {
+            this.style.backgroundColor = "red";
+            isBlue = false;
+        } else {
+            this.style.backgroundColor = "blue";
+            isBlue = true;
+        }
+    }
+</script>
+</body>
+</html>

@@ -9,7 +9,10 @@
 <div id="previous">我是上个兄弟</div>
 
 <!--放在一行会打印的内容不同-->
-<div id="father"><p>child1</p><p>child2</p></div>
+<div id="father">
+    <p>child1</p>
+    <p>child2</p>
+</div>
 
 <div id="sibling">我是下个兄弟</div>
 
@@ -22,6 +25,36 @@
 
     console.log(oFather.previousSibling); // 上一个兄弟
     console.log(oFather.nextSibling); // 下一个兄弟
+
+
+    // 节点对象在浏览器里的兼容性处理
+
+    function get_childNodes(fatherNode) {
+        var nodes = fatherNode.childNodes; // NodeList
+        // 保存已经获取的元素节点对象
+        var arr = [];
+        for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i].nodeType === 1) {
+                arr.push(nodes[i]);
+            }
+        }
+        return arr;
+    }
+
+    var childNodes = get_childNodes(oFather);
+    console.log(childNodes); // 就获得了两个p标签
+
+    // 获取下一个元素节点
+    function get_nextSibling(n) {
+        var x = n.nextSibling;
+        while (n.nodeType != 1) {
+            // 代表不是一个元素节点对象
+            x = x.nextSibling; // 继续往下找，找到了就退出循环
+        }
+        return x;
+    }
+
+    console.log(get_nextSibling(oFather));
 </script>
 </body>
 </html>
