@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点对象的其他属性</title>
+</head>
+<body>
+
+<div id="previous">我是上个兄弟</div>
+
+<!--放在一行会打印的内容不同-->
+<div id="father"><p>child1</p><p>child2</p></div>
+
+<div id="sibling">我是下个兄弟</div>
+
+<script type="text/javascript">
+    var oFather = document.getElementById("father");
+    console.log(oFather.childNodes, oFather.childNodes[0].nodeType);
+    console.log(oFather.firstChild); // 第一个孩子节点
+    console.log(oFather.lastChild); // 最后一个孩子节点
+    console.log(oFather.childNodes[oFather.childNodes.length - 1]); // 也是最后一个孩子节点
+
+    console.log(oFather.previousSibling); // 上一个兄弟
+    console.log(oFather.nextSibling); // 下一个兄弟
+</script>
+</body>
+</html>

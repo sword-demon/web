@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航查找标签</title>
+</head>
+<body>
+
+<div class="c2">
+    <div class="c3">
+        <ul class="c4">
+            <li class="c5" id="i2">111</li>
+            <li>222</li>
+            <li>333</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    // 导航查找: 定位目标标签 li里的id值为i2的
+    var c5 = document.getElementsByClassName("c5")[0];
+    console.log(c5);    // c5是一个dom对象
+    console.log(c5.nextElementSibling); // 下一个兄弟dom对象
+    console.log(c5.parentElement); // 父亲dom对象
+    console.log(c5.parentElement.lastElementChild); // 父亲dom对象的最后一个子dom对象
+    console.log(c5.parentElement.children); // 父亲dom对象的所有子dom对象 集合 collection
+</script>
+</body>
+</html>
