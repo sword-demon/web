@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选和反选</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #panel {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 4px;
+            width: 400px;
+            padding: 20px;
+            margin: 100px auto;
+        }
+
+        .panel-footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="panel">
+    <div class="panel-title">
+        <h3>千千音乐盒子</h3>
+        <hr>
+    </div>
+    <div class="panel-content">
+        <input type="checkbox">稻香<br>
+        <input type="checkbox">漂移<br>
+        <input type="checkbox">一眼万年<br>
+        <input type="checkbox">南山南<br>
+        <input type="checkbox">世上只有妈妈好<br>
+    </div>
+    <div class="panel-footer">
+        <hr>
+        <button id="allSelect">全选</button>
+        <button id="cancelSelect">取消选中</button>
+        <button id="reverseSelect">反选</button>
+    </div>
+</div>
+
+<script>
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+
+    // 获取所有的复选框
+    var inputs = document.getElementsByTagName("input");
+    // 全选
+    $("allSelect").onclick = function () {
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].checked = true;
+        }
+    }
+
+    $("cancelSelect").onclick = function () {
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].checked = false;
+        }
+    }
+
+    $("reverseSelect").onclick = function () {
+        for (var i = 0; i < inputs.length; i++) {
+            // if (inputs[i].checked) {
+            //     inputs[i].checked = false;
+            // } else {
+            //     inputs[i].checked = true;
+            // }
+            inputs[i].checked = !inputs[i].checked
+        }
+    }
+</script>
+</body>
+</html>

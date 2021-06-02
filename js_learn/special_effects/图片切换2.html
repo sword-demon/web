@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #box {
+            border: 1px solid #ccc;
+            width: 450px;
+            height: 70px;
+            padding-top: 430px;
+            background: url("images/image01.jpg") no-repeat;
+        }
+
+        #box ul li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <ul>
+        <li class="item"><img src="images/image01.jpg" style="width: 100px;height: 80px;" alt=""></li>
+        <li class="item"><img src="images/image02.jpg" style="width: 100px;height: 80px;" alt=""></li>
+        <li class="item"><img src="images/image03.jpg" style="width: 100px;height: 80px;" alt=""></li>
+        <li class="item"><img src="images/image04.jpg" style="width: 100px;height: 80px;" alt=""></li>
+    </ul>
+</div>
+
+<script>
+    // 获取事件源
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+
+    // 改变背景图
+    function changeBgcImg(liId, imgSrc) {
+        // 添加事件
+        $(liId).onmouseover = function () {
+            $("box").style.background = imgSrc;
+        }
+    }
+
+    // console.log($("box"));
+
+    var items = document.getElementsByClassName("item");
+    for (var i = 0; i < items.length; i++) {
+        // 或者采用闭包的方法
+        var item = items[i];
+        item.id = i + 1;
+        items[i].onmouseover = function () {
+            $("box").style.background = `url("images/image0${this.id}.jpg") no-repeat`;
+        }
+    }
+
+    // changeBgcImg("item1", 'url("images/image01.jpg") no-repeat');
+    // changeBgcImg("item2", 'url("images/image02.jpg") no-repeat');
+    // changeBgcImg("item3", 'url("images/image03.jpg") no-repeat');
+    // changeBgcImg("item4", 'url("images/image01.jpg") no-repeat');
+</script>
+</body>
+</html>

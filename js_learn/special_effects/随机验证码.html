@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机验证码</title>
+    <style>
+        #code {
+            width: 100px;
+            height: 100px;
+            background-color: #ddd;
+            padding: 10px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 20px;
+            color: red;
+            font-weight: bold;
+        }
+
+        input {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="code"></div>
+<input type="text" id="newCode">
+<input type="button" name="" id="validate" value="验证">
+
+<script>
+    window.onload = function () {
+        // 保存全局的code与新输入的进行校验
+        var code;
+
+        // 获取对应的标签
+        var codeObj = document.getElementById("code");
+
+        var newCodeInput = document.getElementById("newCode");
+        var validate = document.getElementById("validate");
+
+        // 加载页面获取对应的验证码
+        createCode();
+
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        function createCode() {
+            // 设置默认的空的字符串
+            code = "";
+            // 设置长度
+            var codeLength = 4;
+            // 后续数组的内容自己添加
+            var random1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G'];
+            for (var i = 0; i < codeLength; i++) {
+                // 设置随机范围 0~12
+                var index = random(0, 12)
+                code += random1[index];
+            }
+            codeObj.innerHTML = code;
+        }
+
+        // 验证按钮校验
+        validate.onclick = function () {
+            // 获取输入框的输入的值
+            var newCode = newCodeInput.value.toUpperCase();
+            if (newCode === code.toUpperCase()) {
+                location.href = "https://www.baidu.com";
+            } else {
+                alert("验证码输入不正确");
+                newCodeInput.value = "";
+                // 重新获取验证码
+                createCode();
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

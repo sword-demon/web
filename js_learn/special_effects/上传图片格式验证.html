@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传图片格式验证</title>
+</head>
+<body>
+<label for="file">上传图片格式验证</label>
+<input type="file" id="file">
+
+<script>
+    // jpg png jpeg gif
+    // onchange 监听图片选择的变化
+    window.onload = function () {
+        var file = document.getElementById("file");
+        file.onchange = function () {
+            // 获取图片的路径
+            var path = this.value;
+            // 获取.在路径里占据的位置
+            var loc = path.indexOf(".");
+            // 截取文件路径的后缀名
+            var ext = path.substr(loc);
+            // 统一判断的大小写
+            var lower_ext = ext.toLowerCase();
+            if (lower_ext === ".jpg" || lower_ext === ".png" || lower_ext === ".jpeg" || lower_ext === ".gif") {
+                alert("上传图片格式正确");
+            } else {
+                alert("上传图片格式不正确");
+            }
+        }
+    }
+</script>
+</body>
+</html>
