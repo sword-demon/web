@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格布局</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #wrap {
+            /*overflow: hidden;*/
+            position: relative;
+        }
+
+        #wrap .item {
+            width: 248px;
+            height: 360px;
+            font-size: 13px;
+        }
+
+        #wrap .item .title {
+            width: 248px;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        #wrap .item .price {
+            color: #ff6700;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .imgContainer {
+            width: 248px;
+            display: table-cell;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="cols">
+    <button>3列</button>
+    <button>4列</button>
+    <button>5列</button>
+</div>
+
+<div id="wrap">
+    <div class="item">
+        <div class="imgContainer">
+            <img src="images/image01.jpg" style="width: 200px;height: 150px;" alt="">
+        </div>
+        <p class="title">纯色短袖女装秋季T恤</p>
+        <p class="price">¥69</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="images/image01.jpg" style="width: 200px;height: 150px;" alt="">
+        </div>
+        <p class="title">纯色短袖女装秋季T恤</p>
+        <p class="price">¥69</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="images/image01.jpg" style="width: 200px;height: 150px;" alt="">
+        </div>
+        <p class="title">纯色短袖女装秋季T恤</p>
+        <p class="price">¥69</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="images/image01.jpg" style="width: 200px;height: 150px;" alt="">
+        </div>
+        <p class="title">纯色短袖女装秋季T恤</p>
+        <p class="price">¥69</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="images/image01.jpg" style="width: 200px;height: 150px;" alt="">
+        </div>
+        <p class="title">纯色短袖女装秋季T恤</p>
+        <p class="price">¥69</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="images/image01.jpg" style="width: 200px;height: 150px;" alt="">
+        </div>
+        <p class="title">纯色短袖女装秋季T恤</p>
+        <p class="price">¥69</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="images/image01.jpg" style="width: 200px;height: 150px;" alt="">
+        </div>
+        <p class="title">纯色短袖女装秋季T恤</p>
+        <p class="price">¥69</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="images/image01.jpg" style="width: 200px;height: 150px;" alt="">
+        </div>
+        <p class="title">纯色短袖女装秋季T恤</p>
+        <p class="price">¥69</p>
+    </div>
+    <div class="item">
+        <div class="imgContainer">
+            <img src="images/image01.jpg" style="width: 200px;height: 150px;" alt="">
+        </div>
+        <p class="title">纯色短袖女装秋季T恤</p>
+        <p class="price">¥69</p>
+    </div>
+</div>
+
+<script>
+    var btns = document.getElementsByTagName("button");
+    var items = document.getElementsByClassName("item");
+
+    // 第一种方式
+    function display_flex(col) {
+        for (var i = 0; i < items.length; i++) {
+            items[i].style.float = "left";
+            items[i].parentNode.style.width = col * items[i].offsetWidth + "px";
+        }
+    }
+
+    function display_flex2(colsNum) {
+        for (var i = 0; i < items.length; i++) {
+            // 求每个盒子占的行数列数
+            var row = parseInt(i / colsNum);
+            var col = parseInt(i % colsNum);
+
+            // 首先就是找规律
+            items[i].style.position = "absolute";
+            items[i].style.top = (row * items[i].offsetHeight) + "px";
+            items[i].style.left = (col * items[i].offsetWidth) + "px";
+        }
+    }
+
+    // 监听按钮的点击
+    btns[0].onclick = function () {
+        // display_flex(3);
+        display_flex2(3)
+    }
+
+    btns[1].onclick = function () {
+        // 循环items
+        // display_flex(4);
+        display_flex2(4);
+    }
+
+    btns[2].onclick = function () {
+        // 循环items
+        // display_flex(5);
+        display_flex2(5);
+    }
+</script>
+</body>
+</html>
