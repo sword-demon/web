@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery的节点操作</title>
+</head>
+<body>
+<button class="add_btn">添加节点</button>
+<button class="del_btn">删除节点</button>
+<button class="replace_btn">替换节点</button>
+
+<div class="c1">
+    <h3>hello js</h3>
+    <h3 class="c2">Hello World</h3>
+</div>
+
+<script src="../js/jquery3.6.0.js"></script>
+<script>
+    $(".add_btn").click(function () {
+        // 创建一个jQuery对象
+        // var $img = $("<img>");
+        // $img.attr("src", "https://img2.baidu.com/it/u=1529354343,4008095697&fm=26&fmt=auto&gp=0.jpg");
+
+        // 节点添加
+        // $(".c1").append($img);
+        // $img.appendTo(".c1");
+        // $(".c1").prepend($img); // 位置上的差别
+        // $(".c1").after(); // 把某一个标签放到某一个标签后面
+        // $(".c2").before($img); // 把某一个标签放到某一个标签前面
+
+        // 标签字符串添加
+        $(".c1").append("<img src='https://img2.baidu.com/it/u=1529354343,4008095697&fm=26&fmt=auto&gp=0.jpg'>");
+    });
+
+    $(".del_btn").click(function () {
+        // 删除节点
+        $(".c2").remove(); // 把整个dom元素删掉
+        // 清空
+        // $(".c2").empty(); // 把dom的内容删掉
+    });
+
+    $(".replace_btn").click(function () {
+        var $img = $("<img>");
+        $img.attr("src", "https://img2.baidu.com/it/u=1529354343,4008095697&fm=26&fmt=auto&gp=0.jpg");
+        $(".c2").replaceWith($img);
+    });
+</script>
+</body>
+</html>

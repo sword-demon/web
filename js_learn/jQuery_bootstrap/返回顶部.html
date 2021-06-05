@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回顶部案例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            height: 2000px;
+            background-color: lightcyan;
+        }
+
+        .return_top {
+            width: 120px;
+            height: 50px;
+            background-color: lightgreen;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h3>文章</h3>
+<div class="content">
+    ...
+</div>
+
+<!--滚动条拉倒一定的程度进行显示-->
+<div class="return_top hide">回到顶部</div>
+
+<script src="../js/jquery3.6.0.js"></script>
+<script>
+
+    // 当前滚动条距离最上面的距离
+    console.log($(window).scrollTop());
+
+    // 监听滚动条事件
+    $(window).scroll(function () {
+        // console.log($(this).scrollTop()); // 相对偏移量
+        var v = $(this).scrollTop();
+        if (v > 100) {
+            $(".return_top").removeClass("hide");
+        } else {
+            $(".return_top").addClass("hide");
+        }
+    });
+
+    $(".return_top").click(function () {
+        $(window).scrollTop(0);
+    });
+</script>
+</body>
+</html>

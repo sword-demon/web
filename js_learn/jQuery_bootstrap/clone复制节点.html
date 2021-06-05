@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>clone复制节点</title>
+</head>
+<body>
+
+<div class="outer">
+    <div class="item">
+        <input type="button" class="add_btn" value="+">
+        <label>
+            <input type="text">
+        </label>
+    </div>
+</div>
+
+<script src="../js/jquery3.6.0.js"></script>
+<script>
+    $(".add_btn").on("click", function () {
+        var $clone = $(this).parent().clone();
+        $clone.children(".add_btn").val("-").attr("class", "remove_btn");
+
+        $(".outer").append($clone)
+    });
+
+    // $(".remove_btn").click(function () {
+    //     $(this).parent().remove();
+    // });
+
+    $(".outer").on("click", ".remove_btn", function () {
+        $(this).parent().remove();
+    })
+</script>
+</body>
+</html>

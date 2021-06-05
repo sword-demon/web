@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery事件绑定</title>
+</head>
+<body>
+
+<div class="c2">hover</div>
+
+<script src="../js/jquery3.6.0.js"></script>
+<script>
+    $(".c2").hover(mouserover, mouseout);
+
+    function mouserover() {
+        alert("悬浮")
+    }
+
+    function mouseout() {
+        alert("移开")
+    }
+</script>
+
+</body>
+</html>
