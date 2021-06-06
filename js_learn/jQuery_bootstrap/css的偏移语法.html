@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css的偏移语法</title>
+    <style>
+        .c1 {
+            width: 800px;
+            height: 500px;
+            background-color: lightpink;
+            margin: 100px auto;
+        }
+
+        .c2 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+<div class="c1">
+    <div class="c2">
+
+    </div>
+</div>
+
+<script src="../js/jquery3.6.0.js"></script>
+<script>
+
+    // 获取偏移量(位置信息)
+    var offset = $(".c2").offset(); // 相对于 窗口 的偏移    position: 相对于已经定位的父标签偏移量
+    var position = $(".c2").position(); // position: 相对于已经定位的父标签偏移量
+    console.log(offset.top);
+    console.log(offset.left);
+
+    console.log(position.top);
+    console.log(position.left);
+
+    // 设置偏移量 只能设置offset不能设置position
+    $(".c2").click(function () {
+        $(this).offset({top: 100, left: 100});
+        return false; // 最简单的阻止冒泡方法 也能阻止默认的跳转
+    })
+</script>
+</body>
+</html>
