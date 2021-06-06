@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>media媒体查询</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <!--加上IE兼容的一些东西，这里省略不写-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <style>
+
+        /**
+        屏幕最小宽度
+         */
+        @media screen and (min-width: 1200px) {
+            body {
+                background-color: red;
+            }
+        }
+
+        @media screen and (min-width: 920px) and (max-width: 1199px) {
+            body {
+                background-color: yellow;
+            }
+        }
+
+        @media screen and (max-width: 920px) {
+            body {
+                background-color: green;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+</body>
+</html>
