@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>clone复制节点</title>
+    <style>
+        select {
+            width: 500px;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,6 +20,17 @@
     </div>
 </div>
 
+<form action="">
+    <select name="selectVal" id="selectVal" multiple="multiple">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+
+    <button type="button" id="lala">Submit</button>
+</form>
+
+
 <script src="../js/jquery3.6.0.js"></script>
 <script>
     $(".add_btn").on("click", function () {
@@ -22,6 +38,14 @@
         $clone.children(".add_btn").val("-").attr("class", "remove_btn");
 
         $(".outer").append($clone)
+    });
+
+    $("#lala").click(function () {
+        var selectVal = [];
+        $("#selectVal option:selected").each(function () {
+            selectVal.push($(this).val());
+        })
+        console.log(selectVal);
     });
 
     // $(".remove_btn").click(function () {
