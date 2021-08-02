@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue组件</title>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <div :id="message"></div>
+
+        <!-- <ul>
+            <todo-item v-for="item in list" :title="item.title" :del="item.del" :key="item.id" @delete="handleDelete">
+            </todo-item>
+        </ul> -->
+
+        <todo-list>
+            <todo-item @delete="handleDelete" v-for="item in list" :title="item.title" :del="item.del">
+                <template v-slot:pre-icon>
+                    <span>前置图标</span>
+                </template>
+                <template v-slot:suf-icon>
+                    <span>后置图标</span>
+                </template>
+                <!-- 老语法 -->
+                <!-- <span slot="pre-icon">前置图标</span> -->
+                <!-- <span slot="suf-icon">后置图标</span> -->
+            </todo-item>
+        </todo-list>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+
+        // 组件
+        Vue.component('todo-item', {
+            props: {
+                title: String,
+                del: {
+                    type: Boolean,
+                    default: false
+                }
+            },
+            template: `
+            <li>
+                <slot name="pre-icon"></slot>
+                <span v-if="!del">{{title}}</span>
+                <span v-else style="text-decoration: line-through">{{title}}</span>
+                <slot name="suf-icon"></slot>
+                <button v-show="!del" @click="handleClick">删除</button>
+            </li>`,
+            data: function () {
+                return {}
+            },
+            methods: {
+                handleClick() {
+                    console.log("点击了删除按钮");
+                    // 手动抛出事件 事件名，参数
+                    this.$emit('delete', this.title);
+                }
+            }
+        });
+
+        Vue.component('todo-list', {
+            template: `
+            <ul>
+                <slot></slot>
+            </ul>
+            `,
+            data: function () {
+                return {
+                }
+            },
+            methods: {
+                // 获取到事件传递出来的值
+                handleDelete(val) {
+                    console.log("handleDelete", val);
+                }
+            }
+        });
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: "hello world",
+                list: [{
+                    title: "课程1",
+                    del: false
+                }, {
+                    title: "课程2",
+                    del: true
+                }]
+            },
+            methods: {
+                handleDelete(title) {
+                    this.list.forEach(element => {
+                        if (element.title === title) element.del = true
+                    });
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
