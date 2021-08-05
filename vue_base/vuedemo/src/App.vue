@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-08-04 22:01:22
- * @LastEditTime: 2021-08-04 22:20:24
+ * @LastEditTime: 2021-08-05 00:06:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /web/vue_base/vuedemo/src/App.vue
@@ -68,6 +68,7 @@ export default {
       console.log("handleDelete", val);
     },
     handleChange(e) {
+      // 获取 input 事件的对象的 value 值
       this.message = e.target.value;
     },
   },
