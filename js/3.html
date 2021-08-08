@@ -1,0 +1,72 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-08-08 13:46:40
+ * @LastEditTime: 2021-08-08 15:52:09
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /web/js/3.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿里云盘获取分享的文件的demo</title>
+</head>
+
+<body>
+    <script>
+        var url = 'aliyundrive://哈希值:分享的文件';
+
+        (function () {
+            var url_split = url.split("://")
+            if (url_split[0] != 'aliyundrive') {
+                console.error('链接格式错误', url);
+                return false;
+            }
+            var parma = url_split[1].split(":"), file_hash = parma[0], file_size = param[1],
+                file_name = param[2];
+            var token_info = JSON.parse(localStorage.getItem('token'));
+            var drive_id = token_info.default_drive_id;
+            var access_token = token_info.access_token;
+            var post_data = {
+                'drive_id': drive_id,
+                'part_info_list': [
+                    {
+                        'part_number': 1
+                    }
+                ],
+                'parent_file_id': 'root',
+                'name': file_name,
+                'type': 'file',
+                'check_name_mode': 'auto_rename',
+                'size': parseInt(file_size),
+                'content_hash': file_hash,
+                'content_hash_name': 'sha1'
+            };
+            fetch('https://api.aliyundrive.com/v2/file/create', {
+                method: 'post',
+                headers: {
+                    'Content-type': 'application/json;charset=utf-8',
+                    'Authorization': 'Bearer ' + access_token
+                },
+                body: JSON.stringify(post_data)
+            }).then(res => res.json())
+                .then(json => {
+                    console.log('Fetch success', json);
+                    if (json.rapid_upload == true) {
+                        alert('文件已经拷贝\n\n文件名：' + json.file_name);
+                        window.location.href = '/drive/folder/root?_t=' + Math.random();
+                    } else {
+                        alert('云端不存在此文件，拷贝失败！');
+                    }
+                }).catch(function (err) {
+                    console.log('Fetch fail', err);
+                });
+        })();
+    </script>
+</body>
+
+</html>
