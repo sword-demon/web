@@ -41,6 +41,27 @@
             console.log(obj)
 
             // 简单写法
+            let getObject = id => ({ id: id, name: '无解' })
+            let obj2 = getObjectj(1)
+            console.log(obj2)
+
+            // 闭包函数
+            let fn = (function () {
+                return function () {
+                    console.log('es6')
+                }
+            })()
+
+            fn()
+
+            // 使用箭头函数改写
+            let fn1 = (() => {
+                return () => {
+                    console.log('hello es6')
+                }
+            })()
+
+            fn1()
         </script>
     </body>
 </html>
