@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>扩展运算符</title>
+    </head>
+    <body>
+        <script>
+            // 扩展运算符
+            // 允许将一个数组分割 并将各项作为分离的参数传给函数
+
+            // const maxNum = Math.max(20, 30)
+            // console.log(maxNum)
+
+            // 处理数组中的最大值
+            const arr = [10, 20, 30, 40, 50, 60, 100]
+            console.log(Math.max.apply(null, arr)) // 100
+
+            // es6使用扩展运算符
+            console.log(Math.max(...arr))
+
+            // es6的箭头函数
+            // 使用 => 来定义函数 取代了 function (){} 等价于 () => {}
+
+            let add = (a, b) => {
+                return a + b
+            }
+            let minus = (a, b) => a + b // 直接使用表达式
+            console.log(add(10, 20))
+
+            let getObj = id => {
+                return {
+                    id: id,
+                    name: '无解',
+                }
+            }
+
+            let obj = getObj(1)
+            console.log(obj)
+
+            // 简单写法
+        </script>
+    </body>
+</html>

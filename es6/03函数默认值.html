@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>函数</title>
+    </head>
+    <body>
+        <script>
+            // 1. 带参数默认值的函数
+            function add(a, b) {
+                a = a || 10
+                a = b || 20
+                return a + b
+            }
+
+            console.log(add())
+
+            // es5
+            function minus(a = 10, b = 20) {
+                return b - a
+            }
+
+            console.log(minus())
+
+            function divide(a, b = 20) {
+                return a + b
+            }
+
+            console.log(divide(30)) // a = 30
+
+            // 2. 默认的表达式也可以是一个函数
+            function fb(a, b = getVal(5)) {
+                return a + b
+            }
+
+            function getVal(val) {
+                return val + 5
+            }
+
+            console.log(fb(10))
+
+            let book = {
+                title: 'es6的教程',
+                author: 'wujie',
+                year: 2021,
+            }
+
+            function pick(obj) {
+                let result = Object.create(null) // 创造 一个空对象
+                for (let i = 1; i < arguments.length; i++) {
+                    console.log(arguments)
+                    result[arguments[i]] = obj[arguments[i]]
+                }
+                return result
+            }
+
+            // es6
+            // 剩余参数: 由三个点：... 和一个紧跟着的具名参数指定 案例：...keys
+            // 作为函数的参数必须放在最后面
+            function pickes6(obj, ...keys) {
+                // console.log(keys)
+                let result = Object.create(null)
+                for (let i = 0; i < keys.length; i++) {
+                    result[keys[i]] = obj[keys[i]]
+                }
+                return result
+            }
+
+            let bookData = pickes6(book, 'author', 'year', 'title')
+            console.log(bookData)
+        </script>
+    </body>
+</html>
