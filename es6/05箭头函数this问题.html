@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>箭头函数this指向问题</title>
+    </head>
+    <body>
+        <script>
+            // 没有this绑定
+            // es5中this的指向，取决于调用该函数的上下文对象
+            // let PageHandler = {
+            //     id: 123,
+            //     init: function () {
+            //         document.addEventListener('click', function (event) {
+            //             // this.doSomeThings is not a function
+            //             console.log(this) // #document 整个文档
+            //             this.doSomeThings(event.type)
+            //         })
+            //     },
+            //     doSomeThings: function (type) {
+            //         // type 事件类型
+            //         console.log(`事件类型: ${type}，当前id: ${this.id}`)
+            //     },
+            // }
+            // PageHandler.init()
+
+            // es6 解决
+            let PageHandler = {
+                id: 123,
+                // init: function () {
+                //     document.addEventListener(
+                //         'click',
+                //         function (event) {
+                //             this.doSomeThings(event.type)
+                //         }.bind(this), // 此时的this指向的是 PageHandler
+                //         false
+                //     )
+                // },
+                init: function () {
+                    // 如果这里使用了箭头函数，此时的里面的 this 为整个 window对象
+                    // 所以给对象每个方法的时候，不要使用箭头函数
+                    document.addEventListener(
+                        'click',
+                        event => {
+                            // 将函数转换成箭头函数
+                            // 箭头函数没有this指向
+                            // 只能通过它的查找作用域链来找
+                            // 谁调用的 init 函数 => 所以内部的this 就指向了当前的 PageHandler 对象
+                            this.doSomeThings(event.type)
+                        },
+                        false
+                    )
+                },
+                doSomeThings: function (type) {
+                    // type 事件类型
+                    console.log(`事件类型: ${type}，当前id: ${this.id}`)
+                },
+            }
+            PageHandler.init()
+
+            // let getVal = (a, b) => {
+            //     console.log(arguments)
+            //     return a + b
+            // }
+            // console.log(getVal(1, 3))
+        </script>
+    </body>
+</html>
