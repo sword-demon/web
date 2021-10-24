@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>扩展对象的功能</title>
+    </head>
+    <body>
+        <script>
+            // es6 直接写入变量和函数 作为对象的属性和方法
+            const name = 'wujie',
+                age = 20
+            // 可以简写
+            const person = {
+                name, // 等价于 name: name 必须保证属性名和key一样才可以
+                age,
+                sayName() {
+                    console.log(this.name)
+                },
+            }
+
+            person.sayName()
+
+            function fn(x, y) {
+                return { x, y }
+            }
+
+            console.log(fn(10, 20))
+
+            let car = {
+                wheel: 4,
+                set(newVal) {
+                    if (newVal < this.wheel) {
+                        throw new Error('轮子数太少了')
+                    }
+                },
+                get() {
+                    return this.wheel
+                },
+            }
+            car.set(5)
+            console.log(car.get())
+
+            const obj = {}
+            obj.isShow = true
+
+            const username = 'a'
+            obj[username + 'bc'] = 123 // {abc: 123}
+            console.log(obj)
+
+            // 对象的方法
+            // is() 等价于 三等号
+
+            // 比较两个值是否相等
+            console.log(Nan === NaN) // false 特例
+
+            console.log(Object.is(NaN, NaN)) // true
+
+            // assign
+            // 对象的合并
+            // Object.assign(target, obj1, obj2) // 把后面的所有对象合并到第一个里面
+            let o = Object.assign({}, { a: 1 }, { b: 2 })
+            console.log(o) // {a: 1, b: 2} // 返回合并之后的新对象  浅拷贝
+        </script>
+    </body>
+</html>

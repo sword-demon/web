@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>解构赋值</title>
+    </head>
+    <body>
+        <script>
+            // 解构赋值时对赋值运算符的一种扩展
+            // 它针对数组和对象来进行操作
+            // 优点：代码书写上简洁易懂
+            let node = {
+                type: 'identify',
+                name: 'foo',
+            }
+
+            // let type = node.type
+            // let name = node.name
+
+            // es6 解构赋值
+            // 完全解构
+            let { type, name } = node
+            console.log(type, name)
+
+            let obj = {
+                a: {
+                    name: '张三',
+                },
+                b: [],
+                c: 'helloworld',
+            }
+            // 不完全解构，可忽略
+            // let { a } = obj
+            // console.log(a)
+
+            // 使用剩余运算符，会把后面的属性都放到一个对象里
+            let { a, ...res } = obj
+            console.log(res)
+
+            let arr = [1, 2, 3]
+            let [d, e, f] = arr
+            console.log(d, e, f) // 1, 2, 3
+        </script>
+    </body>
+</html>
