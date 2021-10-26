@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Symbol</title>
+    </head>
+    <body>
+        <script>
+            // 原始数据类型 Symbol， 它表示是独一无二的值
+            const name = Symbol('name')
+            const name2 = Symbol('name') // 哪怕里面的内容是一样的，都是独一无二的
+
+            console.log(name === name2) // false
+
+            // 最大用途：用来定义对象的私有变量
+
+            let s1 = Symbol('s1')
+            console.log(s1) // Symbol('s1')
+
+            let obj = {}
+            obj[s1] = '无解' // s1是一个私有变量
+            console.log(obj[s1]) // 无解
+
+            // 如果用Symbol定义的对象的变量，取值是移动用中括号[变量名]，不能通过点来进行获取
+
+            let obj2 = {
+                [s1]: '无解', // 这里注意一定是中括号
+            }
+            console.log(obj2)
+
+            for (let key in obj) {
+                console.log(key) // 没法这么进行遍历
+            }
+
+            console.log(Object.keys(obj)) // 空数组
+
+            // 获取Symbol声明的属性，作为对象的key
+            let s = Object.getOwnPropertySymbols(obj)
+            console.log(s[0])
+            // 使用反射来得到结果
+            let m = Reflect.ownKeys(obj)
+            console.log(m)
+        </script>
+    </body>
+</html>

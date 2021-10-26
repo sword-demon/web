@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Set集合数据类型</title>
+    </head>
+    <body>
+        <script>
+            // 集合：表示无重复值的有序列表
+            let set = new Set()
+            console.log(set) // Set(0) {}
+
+            // 添加元素
+            set.add(2)
+            console.log(set) // Set(1) {2}
+
+            set.add('4')
+            set.add('4') // 添加第二个字符串4，它不会给你添加上
+
+            set.add([1, 2, 3])
+
+            // 删除
+            set.delete(2) // 直接删除第一项
+
+            set.has('4') // 校验某个值是否在集合中
+
+            console.log(set.size) // 获取集合的长度
+
+            set.forEach((val, key) => {
+                console.log(val)
+                console.log(key)
+            })
+
+            // 将集合转换为数组
+            let set2 = new Set([1, 2, 3, 3, 4])
+            console.log(set2) // 不会有多余的3 进行显示
+            // 扩展运算符
+            let arr = [...set2]
+            console.log(arr)
+
+            // 1. set中对象的引用无法被释放
+            let set3 = new Set(),
+                obj = {}
+            set3.add(obj)
+            obj = null // 释放当前的资源
+            console.log(set3)
+
+            let set4 = new WeakSet(),
+                obj3 = {}
+            set4.add(obj3)
+            console.log(set4)
+            // 1. 添加元素的时候不能传入非对象类型的参数
+            // 2. 不可迭代
+            // 3. 没有forEach方法
+            // 4. 没有size属性
+        </script>
+    </body>
+</html>
