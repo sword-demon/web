@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>生成器</title>
+    </head>
+    <body>
+        <script>
+            // generator 函数 通过yield关键字将函数挂起，即停留在当前位置不会往下执行，为了改变执行流
+            // 同时为了做异步编程也提供了方案
+            // 1. 和普通函数的区别，function后面，函数名之前有个*
+            // 2. 只能再函数内部使用yield表达式让函数挂起
+
+            function* func() {
+                console.log('start')
+                yield 2
+            }
+
+            let o = func() // 函数第一次调用 不会执行，只会返回一个遍历器对象
+            console.log(o) // 返回一个遍历器对象
+            // 调用得到的结果
+            console.log(o.next()) // 可以调用next方法，让函数执行
+            console.log(o.next()) // 可以调用next方法，让函数执行
+
+            // generator 函数时分段执行的，yield是暂停执行，next是恢复执行
+
+            function* add() {
+                console.log('one')
+                let x = yield '2'
+                console.log('one' + x)
+                let y = yield '3'
+                console.log('two:' + y)
+                return x + y
+            }
+
+            const fn = add()
+            console.log(fn.next()) // {value: '2', done: false} 打印 one
+            console.log(fn.next(20)) // {value: '3', done: false} 20 => x赋值
+        </script>
+    </body>
+</html>

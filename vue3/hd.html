@@ -13,6 +13,8 @@
             <h2 v-for="lession in lessions">{{lession.title}}</h2>
             <h3>{{name}}</h3>
             <wx />
+            <div v-text="name"></div>
+            <div v-html="html"></div>
         </div>
         <script>
             window.lessions = [{ title: '无解1' }, { title: '无解2' }]

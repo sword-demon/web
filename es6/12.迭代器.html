@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>迭代器</title>
+    </head>
+    <body>
+        <script>
+            // Iterator
+            // 用于遍历数据的指针
+            // 是一种新的遍历机制
+            // 两个核心
+            // 它是一个接口，能快捷的访问数据的接口
+            // 通过 Symbol 来创建迭代器，通过迭代器对象的next方法获取迭代之后的结果
+            // 可以把迭代器认为是一个指针，用于遍历数据的一个游标
+
+            // 使用迭代
+            const items = ['one', 'two', 'threee']
+            // Symbol.Iterator
+            const it = items[Symbol.iterator]()
+            // {value: 'one', done: false} done 如果为false表示遍历没完成 为true的时候表示遍历完成
+            console.log(it.next()) // 返回第一次调用，是个对象
+        </script>
+    </body>
+</html>
